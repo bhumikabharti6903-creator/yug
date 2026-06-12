@@ -347,24 +347,6 @@ export default function SubmitPage() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  // Show sign-in prompt while loading or if not authenticated
-  if (status === "loading") {
-    return (
-      <div className="min-h-screen bg-void flex items-center justify-center">
-        <div className="h-8 w-8 border-2 border-pink-500/30 border-t-pink-500 rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  if (!session) {
-    return (
-      <>
-        <Navbar />
-        <SignInPrompt />
-      </>
-    );
-  }
-
   const {
     register,
     handleSubmit,
@@ -399,6 +381,24 @@ export default function SubmitPage() {
   const handleSuccessComplete = useCallback(() => {
     router.push("/explore");
   }, [router]);
+
+  // Show sign-in prompt while loading or if not authenticated
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen bg-void flex items-center justify-center">
+        <div className="h-8 w-8 border-2 border-pink-500/30 border-t-pink-500 rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <>
+        <Navbar />
+        <SignInPrompt />
+      </>
+    );
+  }
 
   // ── Submit handler ─────────────────────────────────────────────────────
   const onSubmit: (data: SubmitFormData) => Promise<void> = async (data) => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Sparkles, ThumbsUp, Heart, TrendingUp,
   ArrowRight, Zap, Globe, Brain
@@ -71,7 +71,7 @@ export function LandingPageContent({ topics, featuredTopics = [] }: LandingPageC
     );
     setUpvotedIds((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) { next.delete(id); } else { next.add(id); }
       return next;
     });
   };

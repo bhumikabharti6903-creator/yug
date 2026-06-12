@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Heart, Calendar, MessageCircle, Sparkles, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import GradientBorder from "@/components/ui/GradientBorder";
-import { cn } from "@/lib/utils";
+
 
 interface UserData {
   id: string;
