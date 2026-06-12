@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Heart, Calendar, MessageCircle, Sparkles, ChevronLeft } from "lucide-react";
@@ -95,9 +96,11 @@ export default function ProfileClient({
             {/* Avatar */}
             <div className="w-24 h-24 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl shrink-0 shadow-[0_0_30px_rgba(255,0,144,0.2)]">
               {user.avatarUrl ? (
-                <img
+                <Image
                   src={user.avatarUrl}
                   alt={user.displayName}
+                  width={96}
+                  height={96}
                   className="w-full h-full rounded-full object-cover"
                 />
               ) : (
