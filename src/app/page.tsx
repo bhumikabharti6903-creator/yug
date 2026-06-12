@@ -67,10 +67,10 @@ const fallbackTopics: Topic[] = [
 ];
 
 export default async function Page() {
+  const supabase = createServerSideClient();
   let dbTopics: Topic[] = [];
 
   try {
-    const supabase = createServerSideClient();
     const { data, error } = await supabase
       .from("topics")
       .select("*")
