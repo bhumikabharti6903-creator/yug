@@ -39,7 +39,7 @@ export const authOptions: AuthOptions = {
     verifyRequest: "/auth/verify",
   },
   callbacks: {
-    async signIn({ user, account: _account }) {
+    async signIn({ user }) {
       // On first login, create user in Supabase
       if (user.email) {
         try {
@@ -90,7 +90,7 @@ export const authOptions: AuthOptions = {
       }
       return true;
     },
-    async jwt({ token, user, account: _account }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
         token.email = user.email;
